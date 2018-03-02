@@ -1,0 +1,38 @@
+<div class="players">
+  <fieldset>
+    <legend>Palyer 1</legend>
+    <div *ngIf="!player1">
+      <form (submit)="userOne()" #user1Form="ngForm">
+        <label for="userOne">GitHub Username:</label>
+        <input type="text" name="userOne" required [(ngModel)]="user1">
+        <p><span *ngIf="notUser1">{{message}}</span></p>
+        <input type="submit" value="Get User" [disabled]="user1Form.invalid">
+      </form>
+    </div>
+
+    <div *ngIf="player1">
+      <img [src]="player1.avatar" alt="player 1 avatar">
+      <h3>{{player1.username}}</h3>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Palyer 2</legend>
+    <div *ngIf="!player2">
+      <form (submit)="userTwo()" #user2Form="ngForm">
+        <label for="userTwo">GitHub Username:</label>
+        <input type="text" name="userTwo" required [(ngModel)]="user2">
+        <p><span *ngIf="notUser2">{{message}}</span></p>
+        <input type="submit" value="Get User" [disabled]="user2Form.invalid">
+      </form>
+    </div>
+
+    <div *ngIf="player2">
+      <img [src]="player2.avatar" alt="player 2 avatar">
+      <h3>{{player2.username}}</h3>
+    </div>
+
+  </fieldset>
+</div>
+
+<button *ngIf="player1&&player2" (click)="battle()">BATTLE!</button>

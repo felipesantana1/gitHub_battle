@@ -1,0 +1,15 @@
+<fieldset>
+  <legend>Winner!</legend>
+  <h1>{{winner.username}}</h1>
+  <h2>{{winner.score}}</h2>
+  <img [src]=winner.avatar alt="winners avatar">
+</fieldset>
+
+<fieldset>
+    <legend>Loser!</legend>
+    <h1>{{loser.username}}</h1>
+    <h2>{{loser.score}}</h2>
+    <img [src]=loser.avatar alt="losers avatar">
+</fieldset>
+
+<a [routerLink]="['/']"><button id="resetbutton">Reset</button></a>
